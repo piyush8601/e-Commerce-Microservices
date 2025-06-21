@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package cart;
+
+service CartService {
+  rpc addItemsToCart(AddItemsRequest) returns (AddItemsResponse);
+}
+
+message AddItemsRequest {
+  string userId = 1;
+  repeated CartItem items = 2;
+}
+
+message CartItem {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message AddItemsResponse {
+  bool success = 1;
+  string message = 2;
+} 
